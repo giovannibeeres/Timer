@@ -18,15 +18,20 @@ Timer = function(){
 	
 	this.delta = 0
 	this.elapsed = 0
+	
 	this.μs = 0
+	this.sec = 0
+	
+	this.offset = 0
 }
 
 Timer.prototype = {
-	start:function(){
+	start:function(offset){
 		// let hrT = process.hrtime() 
 		// hrT[0] * 1000000 + hrT[1]
 		let hr = process.hrtime()
 		this.starttime = this.now = (hr[0] * 1e9 + hr[1]) / 1e6
+		this.offset = offset || 0
 	},
 	
 	update:function(){
@@ -35,9 +40,8 @@ Timer.prototype = {
 		this.now = (hr[0] * 1e9 + hr[1]) / 1e6
 		
 		this.delta = this.now - this.then
-		this.elapsed = this.now - this.starttime
+		this.elapsed = this.now - this.starttime + this.offset
 		
-		this.μs = this.elapsed * 1e3
 	},
 	
 	msToString:function(num){

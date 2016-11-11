@@ -14,7 +14,7 @@ timer.start()
 
 setTimeout(() => {
 	timer.update()
-	console.log(timer.elapsed, timer.delta)
+	console.log(Timer.msToString(timer.elapsed), timer.elapsed)
 }, 1200)
 ```
 

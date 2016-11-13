@@ -18,8 +18,8 @@ setTimeout(() => {
 }, 1200)
 ```
 
-It is possible to give the Timer some head time.
+It is possible to give the Timer some head start.
 
 ```javascript
-timer.start(1000) // 1 sec head time
+timer.start(1000) // 1 sec head start
 ```
